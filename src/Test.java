@@ -44,14 +44,14 @@ public class Test {
 		float prumer;
 		int volba;
 		char a;
-		int ID,podlozky;
+		int ID,podlozky,sroubky;
 		boolean run=true;
 		while(run)
 		{
 			System.out.println("Vyberte pozadovanou cinnost:");
 			System.out.println("1 .. vlozeni noveho Stroja");
 			System.out.println("2 .. nastaveni vyroby podlozek");
-			System.out.println("3 .. vypis informace o Strojovi");
+			System.out.println("3 .. mastaveni vyroby sroubku");
 			System.out.println("4 .. odstraneni Stroja ");
 			System.out.println("5 .. vypis Stroju ");
 			System.out.println("6 .. setrideni databaze dle ID ");
@@ -69,20 +69,18 @@ public class Test {
 						System.out.println("Stroja nebylo mozno do databaze zadat");
 					break;
 				case 2:
-					System.out.println("Zadejte ID a prumer Stroja");
+					System.out.println("Zadejte kolik podlozek se ma vyrabet");
 					podlozky=pouzeCelaCisla(sc);
 						if (!mojeDatabaze.setPracepodlozky(podlozky))
-						System.out.println("Prumer nezadan");
+						System.out.println("prekrocili jste max kapacitu");
 					
 					break;
 				case 3:
-					System.out.println("Zadejte ID Stroja");
-					ID=pouzeCelaCisla(sc);
-					Stroj info=mojeDatabaze.getStroj(ID);
-					if (info!=null)
-						System.out.println("Jmeno: " + " prumer: " + info.getStroj());
-					else
-						System.out.println("Vybrana polozka neexistuje");
+					System.out.println("Zadejte kolik sroubku se ma vyrobit");
+					sroubky=pouzeCelaCisla(sc);
+					if (!mojeDatabaze.setPracesroubky(sroubky))
+						System.out.println("prekrocili jste max kapacitu");
+
 					break;
 				case 4:
 					System.out.println("Zadejte ID Stroja k odstraneni");

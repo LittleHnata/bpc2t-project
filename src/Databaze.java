@@ -56,14 +56,19 @@ public class Databaze {
     }
 
     public boolean setPracepodlozky(int pracepodlozky) {
-        if(pracepodlozky<=max_kapacita())
-        this.pracepodlozky = pracepodlozky;
+        if(pracepodlozky<=max_kapacita()) {
+            this.pracepodlozky = pracepodlozky;
+            return true;
+        }
         return false;
     }
 
-    public void setPracesroubky(int pracesroubky) {
-        if(pracepodlozky<=max_kapacita_sroubky())
-        this.pracesroubky = pracesroubky;
+    public boolean setPracesroubky(int pracesroubky) {
+        if(pracepodlozky<=max_kapacita_sroubky()) {
+            this.pracesroubky = pracesroubky;
+            return true;
+        }
+        return false;
     }
     public boolean setporucha(int ID){
         for (Stroj stroj:prvkyDatabaze){
