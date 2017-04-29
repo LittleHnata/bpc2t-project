@@ -43,7 +43,7 @@ public class Test {
 		Databaze mojeDatabaze=new Databaze();
 		float prumer;
 		int volba;
-		String a;
+		char a;
 		int ID;
 		boolean run=true;
 		while(run)
@@ -64,7 +64,7 @@ public class Test {
 				case 1:
 					System.out.println("Zadejte jedinecne ID a jmeno Stroja");
 					ID=Test.pouzeCelaCisla(sc);
-					a=sc.next();
+					a=sc.next().charAt(0);
 					if (!mojeDatabaze.setStroj(ID,a))
 						System.out.println("Stroja nebylo mozno do databaze zadat");
 					break;

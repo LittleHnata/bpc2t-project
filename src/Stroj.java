@@ -22,6 +22,7 @@ public class Stroj implements Comparable{
                 this.kapacita=50;
                 this.sku_pracepodlozky=0;
                 this.sku_pracesroubky=0;
+                stroj=a;
                 break;
             case 'c':
                 if (!iscstroj){
@@ -29,6 +30,7 @@ public class Stroj implements Comparable{
                     this.kapacita=150;
                     this.sku_pracepodlozky=0;
                     iscstroj=true;
+                    stroj=a;
                 }else{
                     System.out.println("Stroj C muze byt jen 1");
                 }
@@ -37,6 +39,7 @@ public class Stroj implements Comparable{
                 this.spotreba=4;
                 this.kapacita=70;
                 this.sku_pracepodlozky=0;
+                stroj=a;
                 break;
         }
 	}
@@ -78,6 +81,7 @@ public class Stroj implements Comparable{
 	private float studijniPrumer;
 	private int spotreba;
 	private int kapacita;
+	private char stroj;
 	public boolean iscstroj=false;
     private int pracesroubky;
     private int pracepodlozky;
