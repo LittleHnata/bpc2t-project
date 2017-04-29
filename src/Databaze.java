@@ -103,7 +103,15 @@ public class Databaze {
 		for (Stroj mujStroj:prvkyDatabaze)
 			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj());
 	}
-
+    public void prideleniprace(){
+        //zde bude logika pri pridelovani prace
+    }
+    public void odebraniprace(){
+        //zde bude logika pri odebirani prace
+    }
+	public void porovnanistrojuspotreba(){
+        //zde bude logika pri porovnani
+    }
 	private List<Stroj>  prvkyDatabaze;
     private int pracesroubky;
     private int pracepodlozky;
