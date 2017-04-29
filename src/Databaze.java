@@ -74,6 +74,7 @@ public class Databaze {
         return false;
     }
 
+
     public void setridDatabazi(){
 
 		Collections.sort(prvkyDatabaze);
