@@ -40,6 +40,7 @@ public class Stroj implements Comparable{
         }
 	}
     public void setPorucha(){
+	    if (stroj!='a')
 	    this.porucha=!porucha;
     }
 
@@ -67,4 +68,5 @@ public class Stroj implements Comparable{
 	private char stroj;
 	boolean iscstroj=false;
 	private boolean porucha=false;
+
 }
