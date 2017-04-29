@@ -78,7 +78,7 @@ public class Databaze {
 	public void vypisDatabaze()
 	{
 		for (Stroj mujStroj:prvkyDatabaze)
-			System.out.println("ID: " + mujStroj.getID() + " studijni prumer: " + mujStroj.getStudijniPrumer());
+			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj());
 	}
 	private List<Stroj>  prvkyDatabaze;
 }

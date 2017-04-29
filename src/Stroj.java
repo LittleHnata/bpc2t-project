@@ -52,33 +52,22 @@ public class Stroj implements Comparable{
         this.pracesroubky = pracesroubky;
     }
 
+    public char getStroj() {
+        return stroj;
+    }
+
     /*public String getJmeno()
-            {
-                return jmeno;
-            }
-            */
+                {
+                    return jmeno;
+                }
+                */
 	public int getID()
 	{
 		return ID;
 	}
-	
-	public float getStudijniPrumer() {
-		return studijniPrumer;
-	}
 
-	public boolean setStudijniPrumer(float studijniPrumer) {
-		if (studijniPrumer<1||studijniPrumer>5)
-		{
-			System.out.println("Chybny prumer");
-			return false;
-		}
-		this.studijniPrumer = studijniPrumer;
-		return true;
-	}
-	
 	private int ID;
 	private String jmeno;
-	private float studijniPrumer;
 	private int spotreba;
 	private int kapacita;
 	private char stroj;
