@@ -44,13 +44,13 @@ public class Test {
 		float prumer;
 		int volba;
 		char a;
-		int ID;
+		int ID,podlozky;
 		boolean run=true;
 		while(run)
 		{
 			System.out.println("Vyberte pozadovanou cinnost:");
 			System.out.println("1 .. vlozeni noveho Stroja");
-			System.out.println("2 .. nastaveni prumeru Stroja");
+			System.out.println("2 .. nastaveni vyroby podlozek");
 			System.out.println("3 .. vypis informace o Strojovi");
 			System.out.println("4 .. odstraneni Stroja ");
 			System.out.println("5 .. vypis Stroju ");
@@ -70,10 +70,9 @@ public class Test {
 					break;
 				case 2:
 					System.out.println("Zadejte ID a prumer Stroja");
-					ID=pouzeCelaCisla(sc);
-					prumer = pouzeCisla(sc);
-					//if (!mojeDatabaze.setPrumer(ID,prumer))
-					//	System.out.println("Prumer nezadan");
+					podlozky=pouzeCelaCisla(sc);
+						if (!mojeDatabaze.setPracepodlozky(podlozky))
+						System.out.println("Prumer nezadan");
 					
 					break;
 				case 3:

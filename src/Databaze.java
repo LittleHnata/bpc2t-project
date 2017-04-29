@@ -55,9 +55,10 @@ public class Databaze {
         return maxkapacita;
     }
 
-    public void setPracepodlozky(int pracepodlozky) {
+    public boolean setPracepodlozky(int pracepodlozky) {
         if(pracepodlozky<=max_kapacita())
         this.pracepodlozky = pracepodlozky;
+        return false;
     }
 
     public void setPracesroubky(int pracesroubky) {
