@@ -87,6 +87,7 @@ public class Databaze {
 		for (Stroj mujStroj:prvkyDatabaze)
 			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj());
 	}
+
 	private List<Stroj>  prvkyDatabaze;
     private int pracesroubky;
     private int pracepodlozky;
