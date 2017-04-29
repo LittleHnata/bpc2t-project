@@ -22,19 +22,7 @@ public class Databaze {
 		return prvkyDatabaze.get(ID);
 	}
 	
-	public boolean setPrumer(int ID, float prumer)
-	{
-		for (Stroj stud:prvkyDatabaze)
-		{
-			if(stud.getID() == ID)
-			{
-				stud.setStudijniPrumer(prumer);
-				return true;
-			}	
-		}
-		return false;
 
-	}
 
 	
 	public boolean vymazStroja(int ID)
@@ -61,20 +49,8 @@ public class Databaze {
 		System.out.println("Databaze setridena");
 	
 	}
-	public float zjistiNejhorsiPrumer()
-	{
 
-		float nejhorsi = 0;
-		
-		for (Stroj stud:prvkyDatabaze)
-		{
-			if(stud.getStudijniPrumer() > nejhorsi)
-				nejhorsi = stud.getStudijniPrumer();
-		}
-		
-		return nejhorsi;
 
-	}
 	public void vypisDatabaze()
 	{
 		for (Stroj mujStroj:prvkyDatabaze)

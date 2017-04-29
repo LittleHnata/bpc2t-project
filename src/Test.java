@@ -72,8 +72,8 @@ public class Test {
 					System.out.println("Zadejte ID a prumer Stroja");
 					ID=pouzeCelaCisla(sc);
 					prumer = pouzeCisla(sc);
-					if (!mojeDatabaze.setPrumer(ID,prumer))
-						System.out.println("Prumer nezadan");
+					//if (!mojeDatabaze.setPrumer(ID,prumer))
+					//	System.out.println("Prumer nezadan");
 					
 					break;
 				case 3:
@@ -81,7 +81,7 @@ public class Test {
 					ID=pouzeCelaCisla(sc);
 					Stroj info=mojeDatabaze.getStroj(ID);
 					if (info!=null)
-						System.out.println("Jmeno: " + " prumer: " + info.getStudijniPrumer());
+						System.out.println("Jmeno: " + " prumer: " + info.getStroj());
 					else
 						System.out.println("Vybrana polozka neexistuje");
 					break;
@@ -100,7 +100,7 @@ public class Test {
 					mojeDatabaze.setridDatabazi();
 					break;
 				case 7:
-					System.out.println("nejhorsi prumer je " + mojeDatabaze.zjistiNejhorsiPrumer());
+					System.out.println("nejhorsi prumer je " );
 					break;
 				case 8:
 					run=false;
