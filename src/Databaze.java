@@ -23,9 +23,28 @@ public class Databaze {
 	}
 	
 
+    public boolean zadejVyrobupodozek(int ID,int podlozky){
+        for (Stroj stud:prvkyDatabaze) {
+            if(stud.getID() == ID)
+            {
+                stud.setPracepodlozky(podlozky);
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean zadejVyrobusroubku(int ID,int sroubky){
+        for (Stroj stud:prvkyDatabaze) {
+            if(stud.getID() == ID)
+            {
+                stud.setPracesroubky(sroubky);
+                return true;
+            }
+        }
+        return false;
+    }
 
-	
-	public boolean vymazStroja(int ID)
+    public boolean vymazStroja(int ID)
 	{
 		Iterator<Stroj> iter= prvkyDatabaze.iterator();
 		while(iter.hasNext()){
@@ -49,7 +68,6 @@ public class Databaze {
 		System.out.println("Databaze setridena");
 	
 	}
-
 
 	public void vypisDatabaze()
 	{
