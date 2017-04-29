@@ -35,7 +35,7 @@ public class Stroj implements Comparable{
             default:
                 this.spotreba=4;
                 this.kapacita=70;
-                stroj=a;
+                stroj='a';
                 break;
         }
 	}

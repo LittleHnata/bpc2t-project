@@ -109,14 +109,15 @@ public class Databaze {
         int i=0;
         int polozky=0;
         //plni se nez se doplnej
-        for (Stroj str:prvkyDatabaze){
-            while (str.getAkt_kapacita()<str.getKapacita()){
+        for (Stroj str:prvkyDatabaze ){
+            while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracepodlozky){
                 i++;
                 polozky++;
                 str.setAkt_kapacita(i);
             }
-            if(polozky==pracepodlozky) break;
+            if(polozky==pracepodlozky)break;
             i=0;
+
         }
     }
     public void odebraniprace(){
