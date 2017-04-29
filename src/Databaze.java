@@ -56,6 +56,7 @@ public class Databaze {
     public boolean setPracepodlozky(int pracepodlozky) {
         if(pracepodlozky<=max_kapacita()) {
             this.pracepodlozky = pracepodlozky;
+            prideleniprace();
             return true;
         }
         return false;
@@ -101,10 +102,22 @@ public class Databaze {
 	public void vypisDatabaze()
 	{
 		for (Stroj mujStroj:prvkyDatabaze)
-			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj() + " Porouchan: " + mujStroj.isPorucha());
+			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj() + " Pouzivany: "+ mujStroj.getAkt_kapacita()+ " max " + mujStroj.getKapacita() + " Porouchan: " + mujStroj.isPorucha());
 	}
     public void prideleniprace(){
         //zde bude logika pri pridelovani prace
+        int i=0;
+        int polozky=0;
+        //plni se nez se doplnej
+        for (Stroj str:prvkyDatabaze){
+            while (str.getAkt_kapacita()<str.getKapacita()){
+                i++;
+                polozky++;
+                str.setAkt_kapacita(i);
+            }
+            if(polozky==pracepodlozky) break;
+            i=0;
+        }
     }
     public void odebraniprace(){
         //zde bude logika pri odebirani prace
