@@ -101,7 +101,7 @@ public class Databaze {
 	public void vypisDatabaze()
 	{
 		for (Stroj mujStroj:prvkyDatabaze)
-			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj());
+			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj() + " Porouchan: " + mujStroj.isPorucha());
 	}
     public void prideleniprace(){
         //zde bude logika pri pridelovani prace
