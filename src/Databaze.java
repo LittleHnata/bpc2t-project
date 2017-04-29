@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+
 
 
 
@@ -73,8 +71,12 @@ public class Databaze {
     public boolean setporucha(int ID){
         for (Stroj stroj:prvkyDatabaze){
             if(stroj.getID()==ID){
-                stroj.setPorucha();
-                return true;
+                if(stroj.getStroj()!='a'){
+                    stroj.setPorucha();
+                    return true;
+                }else{
+                    System.out.println("Stroj A se nemuze porouchat");
+                }
             }
         }
         return false;

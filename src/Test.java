@@ -55,16 +55,17 @@ public class Test {
 			System.out.println("4 .. odstraneni Stroja ");
 			System.out.println("5 .. vypis Stroju ");
 			System.out.println("6 .. setrideni databaze dle ID ");
-			System.out.println("7 .. nalezeni nejhorsiho prumeru ");
-			System.out.println("8 .. ukonceni aplikace");
+			System.out.println("7 .. porouchany stroj ");
+			System.out.println("8 .. opraveny stroj ");
+			System.out.println("12 .. ukonceni aplikace");
 			
 			volba=pouzeCelaCisla(sc);
 			switch(volba)
 			{
 				case 1:
-					System.out.println("Zadejte jedinecne ID a jmeno Stroja");
+					System.out.println("Zadejte jedinecne ID a typ Stroja (a,b,c)");
 					ID=Test.pouzeCelaCisla(sc);
-					a=sc.next().charAt(0);
+					a=Character.toLowerCase(sc.next().charAt(0));
 					if (!mojeDatabaze.setStroj(ID,a))
 						System.out.println("Stroja nebylo mozno do databaze zadat");
 					break;
@@ -97,9 +98,18 @@ public class Test {
 					mojeDatabaze.setridDatabazi();
 					break;
 				case 7:
-					System.out.println("nejhorsi prumer je " );
+					System.out.println("Zadejte ID Stroja, ktery se porouchal");
+					ID=pouzeCelaCisla(sc);
+					if (mojeDatabaze.setporucha(ID))
+						System.out.println(ID + " se porouchal ");
 					break;
 				case 8:
+					System.out.println("Zadejte ID opraveneho Stroja");
+					ID=pouzeCelaCisla(sc);
+					if (mojeDatabaze.setoprava(ID))
+						System.out.println(ID + " opraven ");
+					break;
+				case 12:
 					run=false;
 					break;
 			}
