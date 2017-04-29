@@ -73,7 +73,15 @@ public class Databaze {
         }
         return false;
     }
-
+    public boolean setoprava(int ID){
+        for (Stroj stroj:prvkyDatabaze){
+            if(stroj.getID()==ID){
+                stroj.setPorucha();
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void setridDatabazi(){
 
