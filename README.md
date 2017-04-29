@@ -22,4 +22,5 @@ j)	Uložení celé databáze do souboru
 
 k)	Načtení celé databáze ze souboru
 
-hotovo- a,d,
+hotovo- a,d,g
+z casti- b
