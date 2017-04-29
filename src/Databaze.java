@@ -64,12 +64,21 @@ public class Databaze {
         if(pracepodlozky<=max_kapacita_sroubky())
         this.pracesroubky = pracesroubky;
     }
+    public boolean setporucha(int ID){
+        for (Stroj stroj:prvkyDatabaze){
+            if(stroj.getID()==ID){
+                stroj.setPorucha();
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void setridDatabazi(){
 
 		Collections.sort(prvkyDatabaze);
 		System.out.println("Databaze setridena");
-	
+
 	}
 
 	public void vypisDatabaze()
