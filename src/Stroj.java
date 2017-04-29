@@ -23,7 +23,7 @@ public class Stroj implements Comparable{
                 stroj=a;
                 break;
             case 'c':
-                if (!iscstroj){
+                if (iscstroj=false){
                     this.spotreba=2;
                     this.kapacita=150;
                     iscstroj=true;
@@ -39,7 +39,9 @@ public class Stroj implements Comparable{
                 break;
         }
 	}
-
+    public void setPorucha(){
+	    this.porucha=!porucha;
+    }
 
     public char getStroj() {
         return stroj;
@@ -50,11 +52,15 @@ public class Stroj implements Comparable{
 		return ID;
 	}
 
-	private int ID;
+    public boolean isPorucha() {
+        return porucha;
+    }
+
+    private int ID;
 	private String jmeno;
 	private int spotreba;
 	private int kapacita;
 	private char stroj;
-	public boolean iscstroj=false;
-	
+	boolean iscstroj=false;
+	private boolean porucha=false;
 }
