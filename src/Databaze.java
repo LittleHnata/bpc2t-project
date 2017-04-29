@@ -35,6 +35,7 @@ public class Databaze {
 		return false;
 
 	}
+
 	
 	public boolean vymazStroja(int ID)
 	{
