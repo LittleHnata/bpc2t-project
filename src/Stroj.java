@@ -61,6 +61,18 @@ public class Stroj implements Comparable{
         return kapacita;
     }
 
+    public int getSpotreba() {
+        return spotreba;
+    }
+
+    public void setAkt_kapacita(int akt_kapacita) {
+        this.akt_kapacita = akt_kapacita;
+    }
+
+    public int getAkt_kapacita() {
+        return akt_kapacita;
+    }
+
     private int ID;
 	private String jmeno;
 	private int spotreba;
@@ -68,5 +80,5 @@ public class Stroj implements Comparable{
 	private char stroj;
 	boolean iscstroj=false;
 	private boolean porucha=false;
-
+    private int akt_kapacita=0;
 }
