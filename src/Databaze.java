@@ -39,16 +39,34 @@ public class Databaze {
 
 		
 	}
+    public int max_kapacita(){
+	    int maxkapacita=0;
+        for (Stroj mujstroj:prvkyDatabaze) {
+            maxkapacita+=mujstroj.getKapacita();
+        }
+        return maxkapacita;
+    }
+    public int max_kapacita_sroubky(){
+        int maxkapacita=0;
+        for (Stroj mujstroj:prvkyDatabaze) {
+            if (mujstroj.getStroj()=='b')
+            maxkapacita+=mujstroj.getKapacita();
+        }
+        return maxkapacita;
+    }
+
     public void setPracepodlozky(int pracepodlozky) {
+        if(pracepodlozky<=max_kapacita())
         this.pracepodlozky = pracepodlozky;
     }
 
     public void setPracesroubky(int pracesroubky) {
+        if(pracepodlozky<=max_kapacita_sroubky())
         this.pracesroubky = pracesroubky;
     }
 
     public void setridDatabazi(){
-		
+
 		Collections.sort(prvkyDatabaze);
 		System.out.println("Databaze setridena");
 	
@@ -62,4 +80,4 @@ public class Databaze {
 	private List<Stroj>  prvkyDatabaze;
     private int pracesroubky;
     private int pracepodlozky;
-}
+    }

@@ -56,6 +56,10 @@ public class Stroj implements Comparable{
         return porucha;
     }
 
+    public int getKapacita() {
+        return kapacita;
+    }
+
     private int ID;
 	private String jmeno;
 	private int spotreba;
