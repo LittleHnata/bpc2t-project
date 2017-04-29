@@ -21,3 +21,5 @@ i)	Výpis aktuálně vyráběných součástek všemi stroji včetně jejich mno
 j)	Uložení celé databáze do souboru
 
 k)	Načtení celé databáze ze souboru
+
+hotovo- a,d,
