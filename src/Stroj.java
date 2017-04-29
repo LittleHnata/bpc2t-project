@@ -56,8 +56,5 @@ public class Stroj implements Comparable{
 	private int kapacita;
 	private char stroj;
 	public boolean iscstroj=false;
-    private int pracesroubky;
-    private int pracepodlozky;
-
 	
 }
