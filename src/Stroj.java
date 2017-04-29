@@ -20,15 +20,12 @@ public class Stroj implements Comparable{
             case 'b':
                 this.spotreba=3;
                 this.kapacita=50;
-                this.sku_pracepodlozky=0;
-                this.sku_pracesroubky=0;
                 stroj=a;
                 break;
             case 'c':
                 if (!iscstroj){
                     this.spotreba=2;
                     this.kapacita=150;
-                    this.sku_pracepodlozky=0;
                     iscstroj=true;
                     stroj=a;
                 }else{
@@ -38,29 +35,16 @@ public class Stroj implements Comparable{
             default:
                 this.spotreba=4;
                 this.kapacita=70;
-                this.sku_pracepodlozky=0;
                 stroj=a;
                 break;
         }
 	}
 
-    public void setPracepodlozky(int pracepodlozky) {
-        this.pracepodlozky = pracepodlozky;
-    }
-
-    public void setPracesroubky(int pracesroubky) {
-        this.pracesroubky = pracesroubky;
-    }
 
     public char getStroj() {
         return stroj;
     }
 
-    /*public String getJmeno()
-                {
-                    return jmeno;
-                }
-                */
 	public int getID()
 	{
 		return ID;
@@ -74,7 +58,6 @@ public class Stroj implements Comparable{
 	public boolean iscstroj=false;
     private int pracesroubky;
     private int pracepodlozky;
-    private int sku_pracesroubky;
-    private int sku_pracepodlozky;
+
 	
 }
