@@ -55,8 +55,12 @@ public class Databaze {
 
     public boolean setPracepodlozky(int pracepodlozky) {
         if(pracepodlozky<=max_kapacita()) {
-            this.pracepodlozky = pracepodlozky;
-            prideleniprace();
+            if (this.pracepodlozky<pracepodlozky) {
+                this.pracepodlozky = pracepodlozky;
+                prideleniprace();
+            }else{
+                odebraniprace();
+            }
             return true;
         }
         return false;
@@ -122,9 +126,15 @@ public class Databaze {
     }
     public void odebraniprace(){
         //zde bude logika pri odebirani prace
+        int odeber=0;
+        //plni se nez se doplnej
+        for (Stroj str:prvkyDatabaze ){
+            str.setAkt_kapacita(odeber);
+        }
+        prideleniprace();
     }
 	public void porovnanistrojuspotreba(){
-        //zde bude logika pri porovnani
+        //zde bude logika pri porovnani spotreby
     }
 	private List<Stroj>  prvkyDatabaze;
     private int pracesroubky;
