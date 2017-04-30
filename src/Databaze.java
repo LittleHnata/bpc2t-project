@@ -96,10 +96,12 @@ public class Databaze {
         return false;
     }
 
-    public void setridDatabazi(){
-
+    public void setridDatabazi(boolean ses){
+        if (ses)
 		Collections.sort(prvkyDatabaze);
-		System.out.println("Databaze setridena");
+        else
+        Collections.reverse(prvkyDatabaze);
+
 
 	}
 
@@ -112,9 +114,11 @@ public class Databaze {
         //zde bude logika pri pridelovani prace
         int i=0;
         int polozky=0;
+        boolean ses=true;
         //plni se nez se doplnej
+        setridDatabazi(ses);
         for (Stroj str:prvkyDatabaze ){
-            while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracepodlozky){
+            while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracepodlozky && !str.isPorucha()){
                 i++;
                 polozky++;
                 str.setAkt_kapacita(i);
@@ -127,14 +131,13 @@ public class Databaze {
     public void odebraniprace(){
         //zde bude logika pri odebirani prace
         int odeber=0;
+        boolean ses=false;
         //plni se nez se doplnej
+        setridDatabazi(ses);
         for (Stroj str:prvkyDatabaze ){
             str.setAkt_kapacita(odeber);
         }
         prideleniprace();
-    }
-	public void porovnanistrojuspotreba(){
-        //zde bude logika pri porovnani spotreby
     }
 	private List<Stroj>  prvkyDatabaze;
     private int pracesroubky;

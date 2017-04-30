@@ -6,7 +6,7 @@ public class Stroj implements Comparable{
 	public int compareTo(Object dalsi){
 		Stroj stud = (Stroj) dalsi;
 		
-		return Integer.compare(this.ID, stud.ID);
+		return Integer.compare(this.spotreba, stud.spotreba);
 	}
 	
 		

@@ -95,7 +95,7 @@ public class Test {
 					mojeDatabaze.vypisDatabaze();
 					break;
 				case 6:
-					mojeDatabaze.setridDatabazi();
+					//mojeDatabaze.setridDatabazi();
 					break;
 				case 7:
 					System.out.println("Zadejte ID Stroja, ktery se porouchal");
