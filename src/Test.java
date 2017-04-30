@@ -54,7 +54,7 @@ public class Test {
 			System.out.println("3 .. mastaveni vyroby sroubku");
 			System.out.println("4 .. odstraneni Stroja ");
 			System.out.println("5 .. vypis Stroju ");
-			System.out.println("6 .. setrideni databaze dle ID ");
+			System.out.println("6 .. spotreba tovarny");
 			System.out.println("7 .. porouchany stroj ");
 			System.out.println("8 .. opraveny stroj ");
 			System.out.println("12 .. ukonceni aplikace");
@@ -95,7 +95,7 @@ public class Test {
 					mojeDatabaze.vypisDatabaze();
 					break;
 				case 6:
-					//mojeDatabaze.setridDatabazi();
+					System.out.println("Aktkualni spotreba tovarny je " + mojeDatabaze.spotrebatov() + "W/h");
 					break;
 				case 7:
 					System.out.println("Zadejte ID Stroja, ktery se porouchal");

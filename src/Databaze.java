@@ -101,9 +101,20 @@ public class Databaze {
 		Collections.sort(prvkyDatabaze);
         else
         Collections.reverse(prvkyDatabaze);
-
-
 	}
+	public int spotrebatov(){
+        int a=0,b=0,c=0;
+        for(Stroj stroj:prvkyDatabaze){
+            if (stroj.getStroj()=='a')
+                a+=stroj.getAkt_kapacita();
+            else
+                if (stroj.getStroj()=='b')
+                    b+=stroj.getAkt_kapacita();
+                else
+                    c+=stroj.getAkt_kapacita();
+        }
+        return a*4+b*3+c*2;
+    }
 
 	public void vypisDatabaze()
 	{
