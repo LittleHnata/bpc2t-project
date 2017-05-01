@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.io.*;
 
 
 
@@ -57,7 +57,7 @@ public class Databaze {
         if(pracepodlozky<=max_kapacita()) {
             if (this.pracepodlozky<pracepodlozky) {
                 this.pracepodlozky = pracepodlozky;
-                prideleniprace();
+                prideleniprace(false);
             }else{
                 odebraniprace();
             }
@@ -121,13 +121,14 @@ public class Databaze {
 		for (Stroj mujStroj:prvkyDatabaze)
 			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj() + " Pouzivany: "+ mujStroj.getAkt_kapacita()+ " max " + mujStroj.getKapacita() + " Porouchan: " + mujStroj.isPorucha());
 	}
-    public void prideleniprace(){
+    public void prideleniprace(boolean sroub){
         //zde bude logika pri pridelovani prace
         int i=0;
         int polozky=0;
         boolean ses=true;
         //plni se nez se doplnej
         setridDatabazi(ses);
+        if (!sroub){
         for (Stroj str:prvkyDatabaze ){
             while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracepodlozky && !str.isPorucha()){
                 i++;
@@ -137,6 +138,18 @@ public class Databaze {
             if(polozky==pracepodlozky)break;
             i=0;
 
+        }
+        }else{
+            for (Stroj str:prvkyDatabaze ){
+                while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracesroubky && !str.isPorucha() && str.getStroj()=='b'){
+                    i++;
+                    polozky++;
+                    str.setAkt_kapacita(i);
+                }
+                if(polozky==pracesroubky)break;
+                i=0;
+
+            }
         }
     }
     public void odebraniprace(){
@@ -148,9 +161,56 @@ public class Databaze {
         for (Stroj str:prvkyDatabaze ){
             str.setAkt_kapacita(odeber);
         }
-        prideleniprace();
+        prideleniprace(false);
     }
-	private List<Stroj>  prvkyDatabaze;
+    public boolean loadDat(String jmenoDB) throws NumberFormatException{
+        FileReader fr = null;
+        BufferedReader br = null;
+        try {
+            fr = new FileReader(jmenoDB);
+            br = new BufferedReader(fr);
+            while (fr!=null){
+                String row = br.readLine();
+                if(row == null){break;}
+                String[]words = row.split(" ");
+                prvkyDatabaze.add(new Stroj(Integer.parseInt(words[0]),words[1].charAt(0)));
+                //prvkyDatabaze.setStudijniPrumer(Integer.parseInt(words[2]));
+            }
+        }
+
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
+        }
+        return false;
+
+    }
+
+    public boolean saveDat(String jmenoDB){
+        try {
+            FileWriter fw = new FileWriter(jmenoDB);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for(Stroj str:prvkyDatabaze){
+                bw.write(str.getID() + " " + str.getStroj() + " " + str.getAkt_kapacita() + " " + str.isPorucha() + " " + pracepodlozky + " " + pracesroubky);
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+
+
+        }catch (IOException e){
+        }
+        return false;
+    }
+
+    private List<Stroj>  prvkyDatabaze;
     private int pracesroubky;
     private int pracepodlozky;
     }

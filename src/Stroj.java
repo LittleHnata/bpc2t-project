@@ -74,7 +74,6 @@ public class Stroj implements Comparable{
     }
 
     private int ID;
-	private String jmeno;
 	private int spotreba;
 	private int kapacita;
 	private char stroj;
