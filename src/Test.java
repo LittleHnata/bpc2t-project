@@ -41,7 +41,6 @@ public class Test {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		Databaze mojeDatabaze=new Databaze();
-		float prumer;
 		int volba;
 		char a;
 		int ID,podlozky,sroubky;

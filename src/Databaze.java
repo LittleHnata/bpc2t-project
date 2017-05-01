@@ -6,7 +6,7 @@ import java.io.*;
 public class Databaze {
 	Databaze()
 	{
-		prvkyDatabaze=new ArrayList<Stroj>();
+		prvkyDatabaze=new LinkedList<Stroj>();
 	}
 		
 	public boolean setStroj(int ID, char a)
@@ -19,11 +19,6 @@ public class Databaze {
             return	prvkyDatabaze.add(new Stroj(ID,a));
         }
         return false;
-	}
-	
-	public Stroj getStroj(int ID) 
-	{
-		return prvkyDatabaze.get(ID);
 	}
 	
     public boolean cstroj(){
@@ -68,13 +63,8 @@ public class Databaze {
 
     public boolean setPracepodlozky(int pracepodlozky) {
         if(pracepodlozky<=max_kapacita()) {
-            if (this.pracepodlozky<pracepodlozky) {
-                this.pracepodlozky = pracepodlozky;
-                odebraniprace();
-            }else{
-                this.pracepodlozky = pracepodlozky;
-                odebraniprace();
-            }
+            this.pracepodlozky = pracepodlozky;
+            odebraniprace();
             return true;
         }
         return false;
@@ -183,27 +173,6 @@ public class Databaze {
             if(polozky==pracepodlozky)break;
         }
     }
-    public int nacistradky(String jmenoDB){
-        FileReader fr = null;
-        BufferedReader br = null;
-        int lines = 0;
-        try {
-            fr = new FileReader(jmenoDB);
-            br = new BufferedReader(fr);
-            while (br.readLine() != null) lines++;
-            br.close();
-        }
-
-        catch (FileNotFoundException e){
-            e.printStackTrace();
-
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        return lines;
-
-    }
     public boolean loadDat(String jmenoDB) throws NumberFormatException{
         FileReader fr = null;
         BufferedReader br = null;
@@ -217,6 +186,8 @@ public class Databaze {
                 prvkyDatabaze.add(new Stroj(Integer.parseInt(words[0]),words[1].charAt(0)));
                 pracepodlozky=Integer.parseInt(words[2]);
                 pracesroubky=Integer.parseInt(words[3]);
+                if(words[4]=="true")
+                prvkyDatabaze.getLast().setPorucha();
             }
             odebraniprace();
         }
@@ -240,7 +211,7 @@ public class Databaze {
             BufferedWriter bw = new BufferedWriter(fw);
 
             for(Stroj str:prvkyDatabaze){
-                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky /* + " " + str.isPorucha()*/);
+                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky  + " " + str.isPorucha());
                 bw.newLine();
             }
             bw.close();
@@ -252,7 +223,7 @@ public class Databaze {
         return false;
     }
 
-    private List<Stroj>  prvkyDatabaze;
+    private LinkedList<Stroj>  prvkyDatabaze;
     private int pracesroubky;
     private int pracepodlozky;
     }

@@ -1,4 +1,4 @@
-3 c 250 0
-4 b 250 0
-2 b 250 0
-1 a 250 0
+3 c 220 0 false
+2 b 220 0 false
+4 b 220 0 true
+1 a 220 0 false
