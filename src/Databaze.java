@@ -42,9 +42,11 @@ public class Databaze {
 			Stroj stud = iter.next();
 			if(stud.getID() == ID){
 				iter.remove();
+				odebraniprace();
 				return true;
 			}
 		}
+
 		System.out.println("Stroj nenalezen");
 		return false;
 	}
@@ -68,7 +70,7 @@ public class Databaze {
         if(pracepodlozky<=max_kapacita()) {
             if (this.pracepodlozky<pracepodlozky) {
                 this.pracepodlozky = pracepodlozky;
-                prideleniprace();
+                odebraniprace();
             }else{
                 this.pracepodlozky = pracepodlozky;
                 odebraniprace();
@@ -90,7 +92,7 @@ public class Databaze {
             if(stroj.getID()==ID){
                 if(stroj.getStroj()!='a'){
                     stroj.setPorucha();
-                    prideleniprace();
+                    odebraniprace();
                     stroj.setAkt_kapacita(0);
                     return true;
                 }else{
@@ -140,7 +142,7 @@ public class Databaze {
 		for (Stroj mujStroj:prvkyDatabaze)
 			System.out.println("ID: " + mujStroj.getID() + " stroj: " + mujStroj.getStroj() + " Pouzivany: "+ mujStroj.getAkt_kapacita()+ " max " + mujStroj.getKapacita() + " Porouchan: " + mujStroj.isPorucha());
 	}
-    public void prideleniprace(){
+   /* public void prideleniprace(){
         //zde bude logika pri pridelovani prace
         int i=0;
         int polozky=0;
@@ -157,7 +159,7 @@ public class Databaze {
             if(polozky==pracepodlozky)break;
         }
     }
-
+*/
     public void odebraniprace(){
         //zde bude logika pri odebirani prace
         boolean ses=false;
@@ -166,7 +168,20 @@ public class Databaze {
         for (Stroj str:prvkyDatabaze ){
             str.setAkt_kapacita(0);
         }
-        prideleniprace();
+        int i=0;
+        int polozky=0;
+        ses=true;
+        //plni se nez se doplnej
+        setridDatabazi(ses);
+        for (Stroj str:prvkyDatabaze ){
+            while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracepodlozky && !str.isPorucha()){
+                i++;
+                polozky++;
+                str.setAkt_kapacita(i);
+            }
+            i=0;
+            if(polozky==pracepodlozky)break;
+        }
     }
     public int nacistradky(String jmenoDB){
         FileReader fr = null;
@@ -203,7 +218,7 @@ public class Databaze {
                 pracepodlozky=Integer.parseInt(words[2]);
                 pracesroubky=Integer.parseInt(words[3]);
             }
-            prideleniprace();
+            odebraniprace();
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
@@ -225,7 +240,7 @@ public class Databaze {
             BufferedWriter bw = new BufferedWriter(fw);
 
             for(Stroj str:prvkyDatabaze){
-                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky + " " + str.isPorucha());
+                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky /* + " " + str.isPorucha()*/);
                 bw.newLine();
             }
             bw.close();
