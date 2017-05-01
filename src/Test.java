@@ -57,8 +57,8 @@ public class Test {
 			System.out.println("6 .. spotreba tovarny");
 			System.out.println("7 .. porouchany stroj ");
 			System.out.println("8 .. opraveny stroj ");
-            System.out.println("8 .. otevrit databazi ");
-            System.out.println("8 .. ulozit databazi ");
+            System.out.println("9 .. otevrit databazi ");
+            System.out.println("10 .. ulozit databazi ");
 			System.out.println("12 .. ukonceni aplikace");
 			
 			volba=pouzeCelaCisla(sc);
