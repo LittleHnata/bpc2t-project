@@ -97,7 +97,7 @@ public class Test {
 					mojeDatabaze.vypisDatabaze();
 					break;
 				case 6:
-					System.out.println("Aktkualni spotreba tovarny je " + mojeDatabaze.spotrebatov() + "W/h");
+					System.out.println("Aktualni spotreba tovarny je " + mojeDatabaze.spotrebatov() + " W/h");
 					break;
 				case 7:
 					System.out.println("Zadejte ID Stroja, ktery se porouchal");
@@ -120,7 +120,8 @@ public class Test {
 					}
 					break;
 				case 10:
-					mojeDatabaze.saveDat("data.txt");
+					if(mojeDatabaze.saveDat("data.txt"))
+                        System.out.println("stala se chyba pri nacitani databaze");
 					break;
 				case 12:
 					run=false;
