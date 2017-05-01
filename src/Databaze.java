@@ -163,6 +163,27 @@ public class Databaze {
         }
         prideleniprace(false);
     }
+    public int nacistradky(String jmenoDB){
+        FileReader fr = null;
+        BufferedReader br = null;
+        int lines = 0;
+        try {
+            fr = new FileReader(jmenoDB);
+            br = new BufferedReader(fr);
+            while (br.readLine() != null) lines++;
+            br.close();
+        }
+
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return lines;
+
+    }
     public boolean loadDat(String jmenoDB) throws NumberFormatException{
         FileReader fr = null;
         BufferedReader br = null;
@@ -174,10 +195,12 @@ public class Databaze {
                 if(row == null){break;}
                 String[]words = row.split(" ");
                 prvkyDatabaze.add(new Stroj(Integer.parseInt(words[0]),words[1].charAt(0)));
-                //prvkyDatabaze.setStudijniPrumer(Integer.parseInt(words[2]));
+                pracepodlozky=Integer.parseInt(words[2]);
+                pracesroubky=Integer.parseInt(words[3]);
             }
+            prideleniprace(true);
+            prideleniprace(false);
         }
-
         catch (FileNotFoundException e){
             e.printStackTrace();
 
@@ -198,7 +221,7 @@ public class Databaze {
             BufferedWriter bw = new BufferedWriter(fw);
 
             for(Stroj str:prvkyDatabaze){
-                bw.write(str.getID() + " " + str.getStroj() + " " + str.getAkt_kapacita() + " " + str.isPorucha() + " " + pracepodlozky + " " + pracesroubky);
+                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky);
                 bw.newLine();
             }
             bw.close();

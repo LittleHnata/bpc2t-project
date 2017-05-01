@@ -57,6 +57,8 @@ public class Test {
 			System.out.println("6 .. spotreba tovarny");
 			System.out.println("7 .. porouchany stroj ");
 			System.out.println("8 .. opraveny stroj ");
+            System.out.println("8 .. otevrit databazi ");
+            System.out.println("8 .. ulozit databazi ");
 			System.out.println("12 .. ukonceni aplikace");
 			
 			volba=pouzeCelaCisla(sc);
@@ -108,6 +110,17 @@ public class Test {
 					ID=pouzeCelaCisla(sc);
 					if (mojeDatabaze.setoprava(ID))
 						System.out.println(ID + " opraven ");
+					break;
+				case 9:
+					try {
+						mojeDatabaze=new Databaze();
+						mojeDatabaze.loadDat("data.txt");
+					} catch (NumberFormatException e) {
+						e.printStackTrace();
+					}
+					break;
+				case 10:
+					mojeDatabaze.saveDat("data.txt");
 					break;
 				case 12:
 					run=false;
