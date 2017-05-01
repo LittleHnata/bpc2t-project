@@ -1,4 +1,6 @@
 # bpc2t-project
+ hotovo z 90%
+ 
 a)	Přidávat nové stroje do továrny - uživatel si vždy pouze vybere typ stroje, který chce přidat a zadá jeho identifikační číslo.
 
 b)	Zadávání práce strojům - uživatel si pouze vybere, jakou součástku chce vyrábět a v jaké kapacitě (souč./h.), tj. součástí řešení bude efektivní rozdělení práce mezi existující stroje s ohledem na minimální energetickou náročnost. Činnost může být rozdělena mezi několik strojů (i různého typu).
@@ -22,5 +24,3 @@ j)	Uložení celé databáze do souboru
 
 k)	Načtení celé databáze ze souboru
 
-hotovo- a,d,g
-z casti- b
