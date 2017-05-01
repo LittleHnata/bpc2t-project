@@ -103,17 +103,22 @@ public class Databaze {
         Collections.reverse(prvkyDatabaze);
 	}
 	public int spotrebatov(){
-        int a=0,b=0,c=0;
+        int a=0,b=0,c=0,spota=0,spotb=0,spotc=0;
         for(Stroj stroj:prvkyDatabaze){
-            if (stroj.getStroj()=='a')
-                a+=stroj.getAkt_kapacita();
-            else
-                if (stroj.getStroj()=='b')
-                    b+=stroj.getAkt_kapacita();
-                else
-                    c+=stroj.getAkt_kapacita();
+            if (stroj.getStroj()=='a') {
+                a += stroj.getAkt_kapacita();
+                spota=stroj.getSpotreba();
+            }else{
+                if (stroj.getStroj() == 'b') {
+                    b += stroj.getAkt_kapacita();
+                    spotb=stroj.getSpotreba();
+                }else{
+                    c += stroj.getAkt_kapacita();
+                    spotc=stroj.getSpotreba();
+                }
+            }
         }
-        return a*4+b*3+c*2;
+        return a*spota+b*spotb+c*spotc;
     }
 
 	public void vypisDatabaze()
