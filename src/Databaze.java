@@ -11,8 +11,10 @@ public class Databaze {
 		
 	public boolean setStroj(int ID, char a)
 	{
+        if (!cstroj())
 		return	prvkyDatabaze.add(new Stroj(ID,a));
-		
+
+        return false;
 	}
 	
 	public Stroj getStroj(int ID) 
@@ -20,6 +22,14 @@ public class Databaze {
 		return prvkyDatabaze.get(ID);
 	}
 	
+    public boolean cstroj(){
+	    for (Stroj str:prvkyDatabaze){
+	        if (str.getStroj()=='c'){
+	            return true;
+            }
+        }
+        return false;
+    }
 
     public boolean vymazStroja(int ID)
 	{
@@ -33,9 +43,6 @@ public class Databaze {
 		}
 		System.out.println("Stroj nenalezen");
 		return false;
-	
-
-		
 	}
     public int max_kapacita(){
 	    int maxkapacita=0;
@@ -78,6 +85,8 @@ public class Databaze {
             if(stroj.getID()==ID){
                 if(stroj.getStroj()!='a'){
                     stroj.setPorucha();
+                    prideleniprace(false);
+                    stroj.setAkt_kapacita(0);
                     return true;
                 }else{
                     System.out.println("Stroj A se nemuze porouchat");
