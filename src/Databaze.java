@@ -235,7 +235,7 @@ public class Databaze {
             BufferedWriter bw = new BufferedWriter(fw);
 
             for(Stroj str:prvkyDatabaze){
-                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky);
+                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky + " " + str.isPorucha());
                 bw.newLine();
             }
             bw.close();
