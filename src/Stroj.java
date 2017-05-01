@@ -23,15 +23,10 @@ public class Stroj implements Comparable{
                 stroj=a;
                 break;
             case 'c':
-                if (iscstroj=false){
                     this.spotreba=2;
                     this.kapacita=150;
-                    iscstroj=true;
                     stroj=a;
-                }else{
-                    System.out.println("Stroj C muze byt jen 1");
-                }
-                break;
+               break;
             default:
                 this.spotreba=4;
                 this.kapacita=70;
@@ -40,7 +35,6 @@ public class Stroj implements Comparable{
         }
 	}
     public void setPorucha(){
-	    if (stroj!='a')
 	    this.porucha=!porucha;
     }
 
@@ -77,7 +71,6 @@ public class Stroj implements Comparable{
 	private int spotreba;
 	private int kapacita;
 	private char stroj;
-	boolean iscstroj=false;
 	private boolean porucha=false;
     private int akt_kapacita=0;
 }
