@@ -47,16 +47,16 @@ public class Databaze {
 	}
     public int max_kapacita(){
 	    int maxkapacita=0;
-        for (Stroj mujstroj:prvkyDatabaze) {
-            maxkapacita+=mujstroj.getKapacita();
+        for (Stroj str:prvkyDatabaze) {
+            maxkapacita+=str.getKapacita();
         }
         return maxkapacita;
     }
     public int max_kapacita_sroubky(){
         int maxkapacita=0;
-        for (Stroj mujstroj:prvkyDatabaze) {
-            if (mujstroj.getStroj()=='b')
-            maxkapacita+=mujstroj.getKapacita();
+        for (Stroj str:prvkyDatabaze) {
+            if (str.getStroj()=='b')
+            maxkapacita+=str.getKapacita();
         }
         return maxkapacita;
     }
@@ -71,8 +71,9 @@ public class Databaze {
     }
 
     public boolean setPracesroubky(int pracesroubky) {
-        if(pracepodlozky<=max_kapacita_sroubky()) {
+        if(pracesroubky<=max_kapacita_sroubky()) {
             this.pracesroubky = pracesroubky;
+            odebraniprace();
             return true;
         }
         return false;
@@ -163,6 +164,18 @@ public class Databaze {
         ses=true;
         //plni se nez se doplnej
         setridDatabazi(ses);
+        for (Stroj str:prvkyDatabaze){
+            while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracesroubky && !str.isPorucha() && str.getStroj()=='b'){
+                i++;
+                polozky++;
+                str.setAkt_kapacita(i);
+            }
+            i=0;
+            if(polozky==pracesroubky)break;
+        }
+        polozky=0;
+        i=0;
+        if (max_kapacita()==pracepodlozky) pracepodlozky-=pracesroubky;
         for (Stroj str:prvkyDatabaze ){
             while (str.getAkt_kapacita()<str.getKapacita() && polozky<pracepodlozky && !str.isPorucha()){
                 i++;
@@ -186,7 +199,7 @@ public class Databaze {
                 prvkyDatabaze.add(new Stroj(Integer.parseInt(words[0]),words[1].charAt(0)));
                 pracepodlozky=Integer.parseInt(words[2]);
                 pracesroubky=Integer.parseInt(words[3]);
-                if(words[4]=="true")
+                if(Integer.parseInt(words[4])==1)
                 prvkyDatabaze.getLast().setPorucha();
             }
             odebraniprace();
@@ -206,12 +219,18 @@ public class Databaze {
     }
 
     public boolean saveDat(String jmenoDB){
+        int porucha=0;
         try {
             FileWriter fw = new FileWriter(jmenoDB);
             BufferedWriter bw = new BufferedWriter(fw);
 
             for(Stroj str:prvkyDatabaze){
-                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky  + " " + str.isPorucha());
+                if(str.isPorucha())
+                    porucha=1;
+                else
+                    porucha=0;
+
+                bw.write(str.getID() + " " + str.getStroj() + " "  + pracepodlozky + " " + pracesroubky  + " " + porucha);
                 bw.newLine();
             }
             bw.close();
