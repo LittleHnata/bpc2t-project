@@ -50,7 +50,7 @@ public class Test {
 			System.out.println("Vyberte pozadovanou cinnost:");
 			System.out.println("1 .. vlozeni noveho Stroja");
 			System.out.println("2 .. nastaveni vyroby podlozek");
-			System.out.println("3 .. mastaveni vyroby sroubku");
+			System.out.println("3 .. nastaveni vyroby sroubku");
 			System.out.println("4 .. odstraneni Stroja ");
 			System.out.println("5 .. vypis Stroju ");
 			System.out.println("6 .. spotreba tovarny");
@@ -74,23 +74,23 @@ public class Test {
 					System.out.println("Zadejte kolik podlozek se ma vyrabet");
 					podlozky=pouzeCelaCisla(sc);
 						if (!mojeDatabaze.setPracepodlozky(podlozky))
-						System.out.println("prekrocili jste max kapacitu");
+						System.out.println("Prekrocili jste max kapacitu");
 					
 					break;
 				case 3:
 					System.out.println("Zadejte kolik sroubku se ma vyrobit");
 					sroubky=pouzeCelaCisla(sc);
 					if (!mojeDatabaze.setPracesroubky(sroubky))
-						System.out.println("prekrocili jste max kapacitu");
+						System.out.println("Prekrocili jste max kapacitu");
 
 					break;
 				case 4:
 					System.out.println("Zadejte ID Stroja k odstraneni");
 					ID=pouzeCelaCisla(sc);
 					if (mojeDatabaze.vymazStroja(ID))
-						System.out.println(ID + " odstranen ");
+						System.out.println("Stroj " + ID + " odstranen ");
 					else
-						System.out.println(ID + " neni v databazi ");
+						System.out.println("Stroj " + ID + " neni v databazi ");
 					break;
 				case 5:
 					mojeDatabaze.vypisDatabaze();
@@ -102,13 +102,13 @@ public class Test {
 					System.out.println("Zadejte ID Stroja, ktery se porouchal");
 					ID=pouzeCelaCisla(sc);
 					if (mojeDatabaze.setporucha(ID))
-						System.out.println(ID + " se porouchal ");
+						System.out.println("Stroj " + ID + " se porouchal ");
 					break;
 				case 8:
 					System.out.println("Zadejte ID opraveneho Stroja");
 					ID=pouzeCelaCisla(sc);
 					if (mojeDatabaze.setoprava(ID))
-						System.out.println(ID + " opraven ");
+						System.out.println("Stroj " + ID + " opraven ");
 					break;
 				case 9:
 					try {
@@ -120,7 +120,7 @@ public class Test {
 					break;
 				case 10:
 					if(mojeDatabaze.saveDat("data.txt"))
-                        System.out.println("stala se chyba pri nacitani databaze");
+                        System.out.println("Stala se chyba pri nacitani databaze");
 					break;
 				case 12:
 					run=false;
