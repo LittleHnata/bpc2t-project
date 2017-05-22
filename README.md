@@ -1,5 +1,5 @@
 # bpc2t-project
- hotovo z 90%
+ hotovo 100%
  
 a)	Přidávat nové stroje do továrny - uživatel si vždy pouze vybere typ stroje, který chce přidat a zadá jeho identifikační číslo.
 
@@ -24,3 +24,4 @@ j)	Uložení celé databáze do souboru
 
 k)	Načtení celé databáze ze souboru
 
+hodnocení: 23-26/30
