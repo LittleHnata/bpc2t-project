@@ -25,3 +25,5 @@ j)	Uložení celé databáze do souboru
 k)	Načtení celé databáze ze souboru
 
 hodnocení: 23-26/30
+
+Licensed by GNU GPLv2
